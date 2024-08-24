@@ -2,6 +2,7 @@
   "name": "api-mongoos",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node dist/server.ts",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
