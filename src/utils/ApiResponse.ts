@@ -17,7 +17,7 @@ class ApiResponse<T=any> implements IApiResponse<T>  {
        return new ApiResponse(statusCode,data,message,success)
     }
 
-    static error<T = null>(message: string, statusCode: number = 400, data: T ): ApiResponse<T> {
+    static error<T = null>(message: string, statusCode: number = 400, data: T): ApiResponse<T> {
         return new ApiResponse(statusCode, data, message, false);
     }
 }
