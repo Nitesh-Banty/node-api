@@ -1,13 +1,20 @@
 
 // common method to handled async.. method like a service method 
-import { Response,Request } from 'express';
-const asyncHandler=(requestHandled:any)=>{
-    (req:Request,res:Response,next:any)=>{
-      Promise.resolve(requestHandled(req,res,next))
-      .catch(err=>next(err))
-    }
-}
-export {asyncHandler};
+import { Request, Response, NextFunction } from 'express';
+
+type AsyncRequestHandler = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => Promise<any>;
+
+const asyncHandler = (requestHandler: AsyncRequestHandler) => {
+  return (req: Request, res: Response, next: NextFunction): void => {
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
+  };
+};
+
+export { asyncHandler };
 
 
 /*  [ asyncHandler it's a higher order function itself here]

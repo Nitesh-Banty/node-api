@@ -1,6 +1,10 @@
 import cors from "cors";
-import express from "express";
+import express, { Router } from "express";
 import cookieParser from "cookie-parser"
+import { asyncHandler } from "./utils/asyncHandler";
+
+import { Request, Response } from 'express';
+
 
 const app=express();
 // middleware configurations
@@ -25,5 +29,14 @@ app.use(express.static('public'))
   * next for only  is middleware flag
 */
 app.use(cookieParser())
+
+// routes import
+import testRouter from "./routes/test.route";
+import userRouter from "./routes/user.route";
+
+
+//routes declaration
+app.use("/api/v1/users",userRouter)
+
 
 export {app};

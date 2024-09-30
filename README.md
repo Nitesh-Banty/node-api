@@ -1,3 +1,9 @@
-#this is node js api 
+# this is node js api 
 
--[account](niteshdhakariya@gmail.com)
+# user auth / security 
+`json web token , bcrypt`
+
+# file uploading 
+`using cloudinary` 
+`multer or express file update npm `
+ 
