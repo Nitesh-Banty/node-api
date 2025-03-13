@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import {userController} from "../controllers/user.controllers";
+import {registerUser,getAllUsers} from "../controllers/user.controllers";
 
 type Item = {
   id: number,
@@ -8,16 +8,11 @@ type Item = {
 
 const router = Router();
 
-// const userRout=require('../controllers/user.controllers')
-// router.get('/customers',(req,res)=>{
-//       userRout.getAlls(req,res);
-// })
+router.route('/register').post(
+  registerUser)
 
-// router.get('/login',(req,res)=>{
-//     userRout.get(req,res);
-// })
-
-router.route('/register').post(userController)
-
+router.route('/getUsers').get(
+  getAllUsers
+)
 
 export default router;

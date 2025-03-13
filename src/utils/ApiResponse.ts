@@ -21,3 +21,5 @@ class ApiResponse<T=any> implements IApiResponse<T>  {
         return new ApiResponse(statusCode, data, message, false);
     }
 }
+
+export{ApiResponse}

@@ -51,7 +51,7 @@ const UserSchema = new Schema<IUser>({
     },
     avatar: {
         type: String, // cloudinary url
-        required: true
+        required: false
     },
     coverImage: {
         type: String
