@@ -1,5 +1,4 @@
 const chatService = require('../services/chatService');
-
 import { Request,Response } from "express";
 
 const getMessages = async (req:Request, res:Response) => {
@@ -32,7 +31,7 @@ const getRoomMessages = async (req:Request, res:Response) => {
 const getPrivateMessages = async (req:Request, res:Response)=> {
   try {
     const messages = await chatService.getMessageHistory({
-      userId: req.user.id,
+      userId: req.body.userId,
       withUserId: req.params.userId,
       limit: req.query.limit || 50,
       before: req.query.before
@@ -68,7 +67,7 @@ const leaveRoom = (req:Request, res:Response) => {
   res.json({ success: true });
 };
 
-module.exports = {
+exports = {
   getMessages,
   getRoomMessages,
   getPrivateMessages,
